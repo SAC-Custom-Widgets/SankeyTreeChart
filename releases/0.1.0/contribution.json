@@ -1,0 +1,115 @@
+{
+	"eula": "",
+	"vendor": "Nikolaj Kappler",
+	"license": "",
+	"id": "nkappler.sankeytreechart",
+	"version": "0.1.0",
+	"name": "Sankey Tree Chart",
+	"newInstancePrefix": "SankeyTreeChart",
+	"description": "A Proportional Tree Flow Chart",
+	"icon": "https://widgets.nkappler.de/SankeyTreeChart/docs/icon.png",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "sdk-stc",
+			"url": "https://widgets.nkappler.de/SankeyTreeChart/releases/0.1.0/main-webcomponent.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		},
+		{
+			"kind": "styling",
+			"tag": "sdk-stc-aps",
+			"url": "https://widgets.nkappler.de/SankeyTreeChart/releases/0.1.0/styling-webcomponent.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"imports": [
+		"datasource"
+	],
+	"properties": {
+		"backgroundColor": {
+			"type": "string",
+			"description": "The color of the background",
+			"default": "#ffffff"
+		},
+		"width": {
+			"type": "integer",
+			"default": 500
+		},
+		"height": {
+			"type": "integer",
+			"default": 500
+		},
+		"graphColor": {
+			"type": "string",
+			"default": "#5899da"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"rootHeight": {
+			"type": "integer",
+			"default": 300
+		},
+		"padding": {
+			"type": "integer",
+			"default": 10
+		},
+		"columnWidth": {
+			"type": "integer",
+			"default": 200
+		},
+		"direction": {
+			"type": "string",
+			"default": "ltr"
+		},
+		"invertedNumbers": {
+			"type": "boolean",
+			"default": false
+		},
+		"selection": {
+			"type": "Selection"
+		}
+	},
+	"methods": {
+		"getSelection": {
+			"description": "get the currently selected node",
+			"returnType": "Selection",
+			"parameters": [],
+			"body": "return this.selection;"
+		},
+		"update": {
+			"description": "Rerenders the chart",
+			"parameters": []
+		}
+	},
+	"events": {
+		"onSelect": {
+			"description": "This event is fired, when the user selects a node in the chart."
+		},
+		"onHover": {
+			"description": "This event is fired, when the cursor enters a node in the chart."
+		},
+		"onBlur": {
+			"description": "This event is fired, when the cursor leaves a node in the chart."
+		}
+	},
+	"dataBindings": {
+		"myDataSource": {
+			"feeds": [
+				{
+					"id": "dimensions",
+					"description": "The dimensions feed",
+					"type": "dimension"
+				},
+				{
+					"id": "measures",
+					"description": "The measures feed",
+					"type": "mainStructureMember"
+				}
+			]
+		}
+	}
+}
